@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media-Player</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="icon" type="image/x-icon" href="./img/speaker copy.jpg">
+    <meta http-equiv="Content-Security-Policy" 
+    content=" default-src 'self'; font-src fonts.gstatic.com; style-src 'self' fonts.googleapis.com;" />
+    
+</head>
+    <body>
+        <header>
+            <h1><i class="material-symbols-rounded ms">speaker</i>Alternative Rock Radio<i class="material-symbols-rounded ms">speaker</i></h1>
+        </header>
+        <main class="container">
+            <div class="album_art__full">
+                <img src="./img/beck.jpeg" alt="full album art" />
+                <button id="btnShuffle" title="shuffle"><i class="material-symbols-rounded ms-controls">shuffle</i></button>
+            </div>
+            <ul class="playlist">
+                <li class="track__item">
+                    <div class="track__thumb">
+                        <img src="./img/beck100px.jpg" alt="beck album art thumbnail" />
+                    </div>
+                    <div class="track__details">
+                        <p class="track__title">Loser</p>
+                        <p class="track__artist">Beck</p>
+                    </div>
+                    <div class="track__time">
+                        <time datetime="">03:52</time>
+                    </div>
+                </li>
+                <li class="track__item">
+                    <div class="track__thumb">
+                        <img src="./img/nirvana1-100px.jpg" alt="nirvana album art thumbnail" />
+                    </div>
+                    <div class="track__details">
+                        <p class="track__title">Come As You Are</p>
+                        <p class="track__artist">Nirvana</p>
+                    </div>
+                    <div class="track__time">
+                        <time datetime="">03:44</time>
+                    </div>
+                </li>
+                <li class="track__item">
+                    <div class="track__thumb">
+                        <img src="./img/nirvana2-100px.jpg" alt="nirvana album art thumbnail" />
+                    </div>
+                    <div class="track__details">
+                        <p class="track__title">Heart Shaped Box</p>
+                        <p class="track__artist">Nirvana</p>
+                    </div>
+                    <div class="track__time">
+                        <time datetime="">04:42</time>
+                    </div>
+                </li>
+                <li class="track__item">
+                    <div class="track__thumb">
+                        <img src="./img/scartissue100px.jpg" alt="red hot chilli peppers album art thumbnail" />
+                    </div>
+                    <div class="track__details">
+                        <p class="track__title">Scar Tissue</p>
+                        <p class="track__artist">Red Hot Chilli Peppers</p>
+                    </div>
+                    <div class="track__time">
+                        <time datetime="">03:40</time>
+                    </div>
+                </li>
+                <li class="track__item">
+                    <div class="track__thumb">
+                        <img src="./img/radioHead100px.jpg" alt="radio head album art thumbnail" />
+                    </div>
+                    <div class="track__details">
+                        <p class="track__title">Creep</p>
+                        <p class="track__artist">Radio Head</p>
+                    </div>
+                    <div class="track__time">
+                        <time datetime="">03:56</time>
+                    </div>
+                </li>
+                <li class="track__item">
+                    <div class="track__thumb">
+                        <img src="./img/soundgarden100px.jpg" alt="sounds garden album art thumbnail" />
+                    </div>
+                    <div class="track__details">
+                        <p class="track__title">Black Hole Sun</p>
+                        <p class="track__artist">Sound Garden</p>
+                    </div>
+                    <div class="track__time">
+                        <time datetime="">05:20</time>
+                    </div>
+                </li>
+                <li class="track__item">
+                    <div class="track__thumb">
+                        <img src="./img/nirvana1-100px.jpg" alt="nirvana album art thumbnail" />
+                    </div>
+                    <div class="track__details">
+                        <p class="track__title">Smells Like Teen Spirit</p>
+                        <p class="track__artist">Nirvana</p>
+                    </div>
+                    <div class="track__time">
+                        <time datetime="">04:38</time>
+                    </div>
+                </li>
+            </ul>
+        </main>
+        <section class="progress">
+            <div class="played"></div>
+        </section>
+        <footer>
+            <div class="controls">
+                <button id="btnPrev" title="previous track"><i class="material-symbols-rounded ms-controls">skip_previous</i></button>
+                <button id="btnPlay" title="play | pause"><i class="material-symbols-rounded ms-controls">play_arrow</i></button>
+                <button id="btnNext" title="next track"><i class="material-symbols-rounded ms-controls">skip_next</i></button>
+            </div>
+            <div class="times">
+                <time datetime="" class="current-time">00:00</time> &nbsp;|&nbsp;
+                <time datetime="" class="total-time">00:00</time>
+            </div>
+        </footer>
+    </body>
+</html>
