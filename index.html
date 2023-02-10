@@ -11,8 +11,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="./css/main.css">
     <link rel="icon" type="image/x-icon" href="./img/speaker copy.jpg">
-    <meta http-equiv="Content-Security-Policy" 
-    content=" default-src 'self'; font-src fonts.gstatic.com; style-src 'self' fonts.googleapis.com;" />
+    <!-- <meta http-equiv="Content-Security-Policy" 
+    content=" default-src 'self'; font-src fonts.gstatic.com; style-src 'self' fonts.googleapis.com;" /> -->
+    <script src="./js/utils.js" type="module"></script>
+    <script src="./js/app.js" type="module"></script>
     
 </head>
     <body>
@@ -21,23 +23,13 @@
         </header>
         <main class="container">
             <div class="album_art__full">
-                <img src="./img/beck.jpeg" alt="full album art" />
+                <img src="./img/nirvana1.jpeg" alt="full album art" />
                 <button id="btnShuffle" title="shuffle"><i class="material-symbols-rounded ms-controls">shuffle</i></button>
+                <!-- <mark id="isPlaying"></mark> -->
             </div>
             <ul class="playlist">
-                <li class="track__item">
-                    <div class="track__thumb">
-                        <img src="./img/beck100px.jpg" alt="beck album art thumbnail" />
-                    </div>
-                    <div class="track__details">
-                        <p class="track__title">Loser</p>
-                        <p class="track__artist">Beck</p>
-                    </div>
-                    <div class="track__time">
-                        <time datetime="">03:52</time>
-                    </div>
-                </li>
-                <li class="track__item">
+
+                <li id="btnLoad" class="track__item">
                     <div class="track__thumb">
                         <img src="./img/nirvana1-100px.jpg" alt="nirvana album art thumbnail" />
                     </div>
@@ -47,6 +39,18 @@
                     </div>
                     <div class="track__time">
                         <time datetime="">03:44</time>
+                    </div>
+                </li>
+                <li  class="track__item" >
+                    <div class="track__thumb">
+                        <img src="./img/beck100px.jpg" alt="beck album art thumbnail" />
+                    </div>
+                    <div class="track__details">
+                        <p class="track__title">Loser</p>
+                        <p class="track__artist">Beck</p>
+                    </div>
+                    <div class="track__time">
+                        <time datetime="">03:52</time>
                     </div>
                 </li>
                 <li class="track__item">
@@ -111,18 +115,22 @@
                 </li>
             </ul>
         </main>
+
         <section class="progress">
+                    <p>Percentage Played <span id="pctPlay"></span></p>
             <div class="played"></div>
         </section>
         <footer>
             <div class="controls">
                 <button id="btnPrev" title="previous track"><i class="material-symbols-rounded ms-controls">skip_previous</i></button>
                 <button id="btnPlay" title="play | pause"><i class="material-symbols-rounded ms-controls">play_arrow</i></button>
-                <button id="btnNext" title="next track"><i class="material-symbols-rounded ms-controls">skip_next</i></button>
+                <button id="btnPause" title="pause"><i class="material-symbols-rounded ms-controls">pause</i></button>
+                <button id="btnNext" title="next"><i class="material-symbols-rounded ms-controls">skip_next</i></button>
+                
             </div>
             <div class="times">
-                <time datetime="" class="current-time">00:00</time> &nbsp;|&nbsp;
-                <time datetime="" class="total-time">00:00</time>
+                <time id="current-time"></time> &nbsp;|&nbsp;
+                <time id="total-time"></time>
             </div>
         </footer>
     </body>

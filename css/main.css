@@ -123,7 +123,6 @@ select {
     font-size: 38px !important;
 }
 
-
 html{
     background-color: var(--secondary-color);
     background-image: url("../img/antoine-j-7TLZWgfid1U-unsplash.jpg");
@@ -165,17 +164,36 @@ li{
     box-shadow: 2rem 2rem 5rem ;
 }
 
+
 #btnShuffle{
     width: 3rem;
     justify-self: center;
     margin-top: .5rem;
 }
 
+mark{
+    width: 2rem;
+    height: 2rem;
+    background-color: transparent;
+
+}
+
+.isPlaying mark{
+    background-color: #36bf7f;
+}
+
 button{
     background-color: rgba(255, 0, 0, 0);
     border: none;
+    cursor: pointer;
 }
-
+li{
+    cursor: pointer;
+}
+li:hover
+{
+    opacity: .75;
+}
 
 i{
     color: var(--accent2-color); 
@@ -258,15 +276,15 @@ footer {
 .progress{
     background-color: #ffb703;
     width: 100%;
-    height: .5rem;
+    height: 1.5rem;
     position: fixed;
     bottom: 5rem;
 }
 
 .played{
     background-color: var(--accent2-color);
-    width: 25%;
-    height: .5rem;
+    /* width: 0%; */
+    height: 1.5rem;
     position: fixed;
     bottom: 5rem;
 }
