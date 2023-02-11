@@ -61,7 +61,6 @@ const APP = {
                 playPause.innerHTML = `<button id="playPause" title="play | pause"><i class="material-symbols-rounded ms-controls">pause</i></button>`;
                 isPlaying = true;
             }
-
     },
     next: () =>{
         APP.audio.pause();
@@ -98,11 +97,9 @@ const APP = {
         //Album cover
         albumCover.src=`${MEDIA[APP.currentTrack].large}`;
         APP.loadCurrentTrack();
-
     },
     loadCurrentTrack: () => {
         document.querySelector('li').addEventListener('click', APP.load(MEDIA[APP.currentTrack].track));
-
         //Apply CSS for selected track
         const selectedTrack = document.querySelectorAll('.playlist li')[APP.currentTrack];
         selectedTrack.classList.add('selectedTrack');
@@ -137,8 +134,3 @@ const APP = {
 };
 
 document.addEventListener('DOMContentLoaded', APP.init);
-
-/*
-TODO: 
-Play/Pause button switch back n forth
-*/
