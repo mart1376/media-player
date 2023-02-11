@@ -96,13 +96,18 @@ const APP = {
         }).join(' ');
         //Album cover
         albumCover.src=`${MEDIA[APP.currentTrack].large}`;
+        //Selected song css
+        const trackIndicator = document.querySelector('.playlist li');
+        MEDIA.map(() => {
+            if (MEDIA[APP.currentTrack]) {
+                trackIndicator.classList.add('current-track');
+            }
+        });
         APP.loadCurrentTrack();
+
     },
     loadCurrentTrack: () => {
         document.querySelector('li').addEventListener('click', APP.load(MEDIA[APP.currentTrack].track));
-        //Apply CSS for selected track
-        const selectedTrack = document.querySelectorAll('.playlist li')[APP.currentTrack];
-        selectedTrack.classList.add('selectedTrack');
     },
     convertTimeDisplay: (seconds) => {
         let minutes = Math.floor(seconds / 60);
@@ -121,6 +126,9 @@ const APP = {
     timeupdate: (ev) =>{
         document.getElementById('current-time').textContent = APP.convertTimeDisplay(APP.audio.currentTime);
         APP.showPct ();
+    },
+    audioError: () => {
+        
     },
     showPct: () =>{
         let pct = APP.audio.currentTime / APP.audio.duration;
