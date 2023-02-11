@@ -23,101 +23,27 @@
         </header>
         <main class="container">
             <div class="album_art__full">
-                <img src="./img/nirvana1.jpeg" alt="full album art" />
+                <img src="" alt="full album art" />
                 <button id="btnShuffle" title="shuffle"><i class="material-symbols-rounded ms-controls">shuffle</i></button>
-                <!-- <mark id="isPlaying"></mark> -->
             </div>
-            <ul class="playlist">
-
-                <li id="btnLoad" class="track__item">
+            <ul class="playlist" id="playlist">
+                <li class="track__item" id="track__item" >
                     <div class="track__thumb">
-                        <img src="./img/nirvana1-100px.jpg" alt="nirvana album art thumbnail" />
+                        <img src="" alt="nirvana album art thumbnail" />
                     </div>
                     <div class="track__details">
-                        <p class="track__title">Come As You Are</p>
-                        <p class="track__artist">Nirvana</p>
+                        <p class="track__title"></p>
+                        <p class="track__artist"></p>
                     </div>
                     <div class="track__time">
-                        <time datetime="">03:44</time>
-                    </div>
-                </li>
-                <li  class="track__item" >
-                    <div class="track__thumb">
-                        <img src="./img/beck100px.jpg" alt="beck album art thumbnail" />
-                    </div>
-                    <div class="track__details">
-                        <p class="track__title">Loser</p>
-                        <p class="track__artist">Beck</p>
-                    </div>
-                    <div class="track__time">
-                        <time datetime="">03:52</time>
-                    </div>
-                </li>
-                <li class="track__item">
-                    <div class="track__thumb">
-                        <img src="./img/nirvana2-100px.jpg" alt="nirvana album art thumbnail" />
-                    </div>
-                    <div class="track__details">
-                        <p class="track__title">Heart Shaped Box</p>
-                        <p class="track__artist">Nirvana</p>
-                    </div>
-                    <div class="track__time">
-                        <time datetime="">04:42</time>
-                    </div>
-                </li>
-                <li class="track__item">
-                    <div class="track__thumb">
-                        <img src="./img/scartissue100px.jpg" alt="red hot chilli peppers album art thumbnail" />
-                    </div>
-                    <div class="track__details">
-                        <p class="track__title">Scar Tissue</p>
-                        <p class="track__artist">Red Hot Chilli Peppers</p>
-                    </div>
-                    <div class="track__time">
-                        <time datetime="">03:40</time>
-                    </div>
-                </li>
-                <li class="track__item">
-                    <div class="track__thumb">
-                        <img src="./img/radioHead100px.jpg" alt="radio head album art thumbnail" />
-                    </div>
-                    <div class="track__details">
-                        <p class="track__title">Creep</p>
-                        <p class="track__artist">Radio Head</p>
-                    </div>
-                    <div class="track__time">
-                        <time datetime="">03:56</time>
-                    </div>
-                </li>
-                <li class="track__item">
-                    <div class="track__thumb">
-                        <img src="./img/soundgarden100px.jpg" alt="sounds garden album art thumbnail" />
-                    </div>
-                    <div class="track__details">
-                        <p class="track__title">Black Hole Sun</p>
-                        <p class="track__artist">Sound Garden</p>
-                    </div>
-                    <div class="track__time">
-                        <time datetime="">05:20</time>
-                    </div>
-                </li>
-                <li class="track__item">
-                    <div class="track__thumb">
-                        <img src="./img/nirvana1-100px.jpg" alt="nirvana album art thumbnail" />
-                    </div>
-                    <div class="track__details">
-                        <p class="track__title">Smells Like Teen Spirit</p>
-                        <p class="track__artist">Nirvana</p>
-                    </div>
-                    <div class="track__time">
-                        <time datetime="">04:38</time>
+                        <time datetime=""></time>
                     </div>
                 </li>
             </ul>
-        </main>
 
+        </main>
         <section class="progress">
-                    <p>Percentage Played <span id="pctPlay"></span></p>
+                    <p><span id="pctPlay"></span></p>
             <div class="played"></div>
         </section>
         <footer>
@@ -125,6 +51,7 @@
                 <button id="btnPrev" title="previous track"><i class="material-symbols-rounded ms-controls">skip_previous</i></button>
                 <button id="btnPlay" title="play | pause"><i class="material-symbols-rounded ms-controls">play_arrow</i></button>
                 <button id="btnPause" title="pause"><i class="material-symbols-rounded ms-controls">pause</i></button>
+                <!-- <button id="playPause" title="pause"><i class="material-symbols-rounded ms-controls">play_arrow</i></button> -->
                 <button id="btnNext" title="next"><i class="material-symbols-rounded ms-controls">skip_next</i></button>
                 
             </div>

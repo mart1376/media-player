@@ -140,6 +140,12 @@ header{
     text-align: center;
     position: fixed;
     width: 100%;
+    z-index: 1;
+}
+
+header i{
+    transform: translateY(.25rem);
+
 }
 
 h1{
@@ -171,32 +177,37 @@ li{
     margin-top: .5rem;
 }
 
-mark{
-    width: 2rem;
-    height: 2rem;
-    background-color: transparent;
-
-}
-
-.isPlaying mark{
-    background-color: #36bf7f;
-}
-
 button{
     background-color: rgba(255, 0, 0, 0);
+    background-color: transparent;
     border: none;
     cursor: pointer;
 }
+
+.controls i:hover,
+.controls i:focus{
+box-shadow: 0 0 0.5em 0.1em var(--accent2-color);
+}
+
 li{
     cursor: pointer;
+    z-index: -2;
 }
-li:hover
-{
-    opacity: .75;
+
+li:hover,
+li:focus{
+    opacity: .80;
+    outline:  .25rem solid var(--accent2-color);
+}
+
+.selectedTrack{
+    background-color: #36bf7f;
 }
 
 i{
     color: var(--accent2-color); 
+    background-color: transparent;
+    border-radius: 2rem;
 }
 
 h1 i{
@@ -283,12 +294,11 @@ footer {
 
 .played{
     background-color: var(--accent2-color);
-    /* width: 0%; */
+    width: 0%;
     height: 1.5rem;
     position: fixed;
     bottom: 5rem;
 }
-
 
 @media only screen and (min-width: 30em) {
 
