@@ -40,7 +40,7 @@ const MEDIA = [
     artist: 'Radio Head',
     title: 'Creep',
     track: './media/radiohead-creep.mp3',
-    thumbnail: './img/radiohead100px.jpg',
+    thumbnail: './img/radioHead100px.jpg',
     large: './img/radiohead.jpeg',
     time: '3:57',
   },
