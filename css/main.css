@@ -178,15 +178,18 @@ li{
 }
 
 button{
-    background-color: rgba(255, 0, 0, 0);
     background-color: transparent;
     border: none;
     cursor: pointer;
 }
 
-.controls i:hover,
-.controls i:focus{
+
+.controls i{
 box-shadow: 0 0 0.5em 0.1em var(--accent2-color);
+}
+
+.controls i:hover{
+    box-shadow: 0 0 0.5em 0.2em var(--accent-color);
 }
 
 li{
@@ -197,11 +200,7 @@ li{
 li:hover,
 li:focus{
     opacity: .80;
-    outline:  .25rem solid var(--accent2-color);
-}
 
-.selectedTrack{
-    background-color: #36bf7f;
 }
 
 i{
@@ -251,7 +250,7 @@ h1 i{
     display: flex;
     padding: 1rem;
     background-color: #023047;
-        box-shadow: 1rem 1rem 5rem black;
+    box-shadow: 1rem 1rem 5rem black;
     border-radius: 1rem;
     width: fit-content;
     justify-content: center;
@@ -263,6 +262,8 @@ h1 i{
     align-self: flex-end;
     justify-self: end;
 }
+
+
 
 footer {
     position: fixed;
@@ -282,28 +283,39 @@ footer {
 
 .times{
     color: var(--accent2-color);
+    font-size: 1.5rem;
 }
 
 .progress{
     background-color: #ffb703;
     width: 100%;
-    height: 1.5rem;
+    height: 1rem;
     position: fixed;
     bottom: 5rem;
 }
 
 .played{
     background-color: var(--accent2-color);
-    width: 0%;
-    height: 1.5rem;
+    width: 25%;
+    height: 1rem;
     position: fixed;
     bottom: 5rem;
+    z-index: -1;
+}
+
+span {
+    font-size: 1rem;
+}
+
+.current-track{
+    outline: .25rem solid var(--accent-color);
 }
 
 @media only screen and (min-width: 30em) {
 
 .album_art__full img {
         width: 30rem;
+        outline: .25rem solid var(--accent-color);
     }
     h1 {
         font-size: 2.75rem;
