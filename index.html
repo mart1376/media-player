@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./css/main.css">
     <link rel="icon" type="image/x-icon" href="./img/speaker copy.jpg">
     <!-- <meta http-equiv="Content-Security-Policy" 
-    content=" default-src 'self'; font-src fonts.gstatic.com; style-src 'self' fonts.googleapis.com;" /> -->
+    content="default-src 'self'; img-src *; script-src *; media-src *; font-src *; style-src *;" /> -->
     <script src="./js/utils.js" type="module"></script>
     <script src="./js/app.js" type="module"></script>
     
@@ -49,9 +49,7 @@
         <footer>
             <div class="controls">
                 <button id="btnPrev" title="previous track"><i class="material-symbols-rounded ms-controls">skip_previous</i></button>
-                <button id="btnPlay" title="play | pause"><i class="material-symbols-rounded ms-controls">play_arrow</i></button>
-                <button id="btnPause" title="pause"><i class="material-symbols-rounded ms-controls">pause</i></button>
-                <!-- <button id="playPause" title="pause"><i class="material-symbols-rounded ms-controls">play_arrow</i></button> -->
+                <button id="playPause" title="pause"><i class="material-symbols-rounded ms-controls">play_arrow</i></button>
                 <button id="btnNext" title="next"><i class="material-symbols-rounded ms-controls">skip_next</i></button>
                 
             </div>
