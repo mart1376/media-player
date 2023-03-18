@@ -141,6 +141,7 @@ header{
     position: fixed;
     width: 100%;
     z-index: 1;
+    display: inline;
 }
 
 header i{
@@ -151,7 +152,9 @@ header i{
 h1{
     color: var(--accent2-color);
     font-size: 2rem;
+    font-weight: 300;
     margin-bottom: 0;
+    
 }
 
 li{
@@ -168,6 +171,7 @@ li{
 .album_art__full img{
     border-radius: 1rem;
     box-shadow: 2rem 2rem 5rem ;
+    /* outline: .25rem solid var(--accent-color); */
 }
 
 
@@ -185,11 +189,11 @@ button{
 
 
 .controls i{
-box-shadow: 0 0 0.5em 0.1em var(--accent2-color);
+    border: 2px solid var(--accent2-color);
 }
 
 .controls i:hover{
-    box-shadow: 0 0 0.5em 0.2em var(--accent-color);
+    border: 2px solid var(--accent-color);
 }
 
 li{
@@ -289,7 +293,7 @@ footer {
 .progress{
     background-color: #ffb703;
     width: 100%;
-    height: 1rem;
+    height: .75rem;
     position: fixed;
     bottom: 5rem;
 }
@@ -297,7 +301,7 @@ footer {
 .played{
     background-color: var(--accent2-color);
     width: 25%;
-    height: 1rem;
+    height: .75rem;
     position: fixed;
     bottom: 5rem;
     z-index: -1;
@@ -315,7 +319,6 @@ span {
 
 .album_art__full img {
         width: 30rem;
-        outline: .25rem solid var(--accent-color);
     }
     h1 {
         font-size: 2.75rem;
