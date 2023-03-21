@@ -40,14 +40,12 @@ const APP = {
         // andPlay && !(andPlay instanceof Event);
         APP.loadAlbumCover();
         // APP.play();
-
         if (andPlay) {
             document.addEventListener('click', function playAudio() {
                 APP.play();
                 document.removeEventListener('click', playAudio);
             });
         }
-
     },
     loadAlbumCover: () => {
         const albumCover = document.querySelector('.album_art__full img');
@@ -124,8 +122,6 @@ const APP = {
         if (APP.currentTrack >= MEDIA.length) APP.currentTrack = 0;
         APP.load();
         APP.play();
-        // APP.updateUI();
-        // APP.playPauseUI();
         APP.UI();
     },
     prev: () => {
@@ -134,8 +130,6 @@ const APP = {
         if (APP.currentTrack < 0) APP.currentTrack = 0;
         APP.load();
         APP.play();
-        // APP.updateUI();
-        // APP.playPauseUI();
         APP.UI();
     },
     shuffle: () => {
@@ -147,18 +141,10 @@ const APP = {
         }
         APP.currentTrack = 0;
         APP.init();
-        // APP.shuffleToggle();
+        APP.play();
         APP.updateUI();
         APP.playPauseUI();
     },
-    // shuffleToggle: () => {
-    //     const btnShuffle = document.getElementById('btnShuffle');
-    //     if (MEDIA.some(track => track !== MEDIA[APP.currentTrack])) {
-    //         btnShuffle.classList.add('active');
-    //     } else {
-    //         btnShuffle.classList.remove('active');
-    //     }
-    // },
     ended: () => {
         APP.next();
     },

@@ -283,8 +283,6 @@ h1 i{
     justify-self: end;
 }
 
-
-
 footer {
     position: fixed;
     bottom: 0;
@@ -332,45 +330,30 @@ span {
 
 /* ~~~~~~~~~~~~~~~~~~Animations + ~~~~~~~~~~~~~~~~~~~~~ */
 .animate {
-	backface-visibility: visible !important;
-	animation: flip 2s ease;
+	animation: flip 1.25s ease;
 }
 @keyframes flip {
 	0% {
-        transform: perspective(2000px) rotateY(0);
+        transform: rotateY(0);
 		animation-timing-function: ease-out;
 	}
 	40% {
-		transform: perspective(2000px) translateZ(150px) rotateY(170deg);
+		transform: translateZ(150px) rotateY(170deg);
 		animation-timing-function: ease-out;
 	}
 	50% {
-		transform: perspective(2000px) translateZ(150px) rotateY(190deg) scale(1);
+		transform: translateZ(150px) rotateY(190deg) scale(1);
 		animation-timing-function: ease-in;
 	}
 	80% {
-		transform: perspective(2000px) rotateY(360deg) scale(.95);
+		transform:  rotateY(360deg) scale(.95);
 		animation-timing-function: ease-in;
 	}
 	100% {
-		transform: perspective(2000px) scale(1);
+		transform: scale(1);
 		animation-timing-function: ease-in;
 	}
 }
-/* .animate {
-    animation: myAnimation 1s ease;
-    }
-
-    @keyframes myAnimation {
-    from {
-        opacity: 0;
-        transform: scale(0.5);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-} */
 
 .jump {
     animation: jump 0.5s ease-in-out infinite;
@@ -388,6 +371,8 @@ span {
         transform: translateY(0);
     }
 }
+
+/* ~~~~~~~~~~~~~~~~~~Screen Changes~~~~~~~~~~~~~~~~~~~~~ */
 
 @media only screen and (min-width: 30em) {
 
