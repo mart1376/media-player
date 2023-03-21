@@ -9,7 +9,10 @@ const APP = {
         APP.addAudioListeners();
         APP.buildPlaylist();
         APP.selectedTrack();
-
+    },
+    UI: () => {
+        APP.updateUI();
+        APP.playPauseUI();
     },
     addListeners: () => {
         document.getElementById('track__item').addEventListener('click', APP.load);
@@ -19,22 +22,31 @@ const APP = {
         document.getElementById('playPause').addEventListener('click', APP.playPause);
         document.getElementById('btnShuffle').addEventListener('click', APP.shuffle);
     },
-
     addAudioListeners: () => {
         APP.audio.addEventListener('error', APP.audioError);
-        APP.audio.addEventListener('durationchange', APP.durationchange, APP.playAnimations)
-        APP.audio.addEventListener('timeupdate', APP.timeupdate)
+        APP.audio.addEventListener('durationchange', APP.durationchange)
+        APP.audio.addEventListener('timeupdate', () => {
+            APP.timeupdate();
+            APP.playAnimations();
+        })
+
         APP.audio.addEventListener('play', APP.play)
         APP.audio.addEventListener('pause', APP.pause)
         APP.audio.addEventListener('ended', APP.next)
-
     },
     load: (andPlay = false) => {
         APP.audio.src = `./media/${MEDIA[APP.currentTrack].track}`;
         console.log('audio has been loaded', APP.audio.src);
-        andPlay && !(andPlay instanceof Event);
+        // andPlay && !(andPlay instanceof Event);
         APP.loadAlbumCover();
-        APP.play();
+        // APP.play();
+
+        if (andPlay) {
+            document.addEventListener('click', function playAudio() {
+                APP.play();
+                document.removeEventListener('click', playAudio);
+            });
+        }
 
     },
     loadAlbumCover: () => {
@@ -44,12 +56,14 @@ const APP = {
         void albumCover.offsetWidth;
         albumCover.classList.add('animate');
     },
-    duration: () => { //TODO: first track duration not correct
+    duration: () => {
+        //TODO: first track duration not correct
         MEDIA.forEach((track) => {
             let tempAudio = new Audio(`./media/${track.track}`);
             tempAudio.addEventListener('durationchange', (ev) => {
                 let duration = ev.target.duration;
                 track['duration'] = duration;
+
                 let thumbnails = document.querySelectorAll('.track__item img');
                 thumbnails.forEach((thumb, index) => {
                     if (thumb.src.includes(track.thumbnail)) {
@@ -67,7 +81,6 @@ const APP = {
             console.warn('you need to load a track first');
         }
         APP.updateUI();
-
     },
     pause: () => {
         APP.audio && APP.audio.pause();
@@ -89,31 +102,41 @@ const APP = {
         } else {
             playPause.innerHTML = `<button id="btnPlay" title="play | pause"><i class="material-symbols-rounded ms-controls">play_arrow</i></button>`;
         }
-
     },
-    playAnimations: () => {
-        // const icon = document.querySelector("h1");
-        // if (!audio.paused) {
-        //     icon.classList.add("icon");
-        // } else {
-        //     icon.classList.remove("icon");
-        // };
+    playAnimations: () => { //TODO:
+        //Header icons 
+        const icons = document.querySelectorAll('h1 i');
+        icons.forEach(icon => {
+            if (!APP.audio.paused) {
+                icon.classList.add("jump");
+            } else {
+                icon.classList.remove("jump");
+            }
+        });
+        //Animation 
+        // const albumCover = document.querySelector('.album_art__full img');
+        // albumCover.classList.add('jump');
+        // APP.addAudioListeners();
     },
     next: () => {
         APP.audio.pause();
         APP.currentTrack++;
         if (APP.currentTrack >= MEDIA.length) APP.currentTrack = 0;
         APP.load();
-        APP.updateUI();
-        APP.playPauseUI();
+        APP.play();
+        // APP.updateUI();
+        // APP.playPauseUI();
+        APP.UI();
     },
     prev: () => {
         APP.audio.pause();
         APP.currentTrack--;
         if (APP.currentTrack < 0) APP.currentTrack = 0;
         APP.load();
-        APP.updateUI();
-        APP.playPauseUI();
+        APP.play();
+        // APP.updateUI();
+        // APP.playPauseUI();
+        APP.UI();
     },
     shuffle: () => {
         for (let i = MEDIA.length - 1; i > 0; i--) {
@@ -124,18 +147,18 @@ const APP = {
         }
         APP.currentTrack = 0;
         APP.init();
-        APP.shuffleToggle();
+        // APP.shuffleToggle();
         APP.updateUI();
         APP.playPauseUI();
     },
-    shuffleToggle: () => {
-        const btnShuffle = document.getElementById('btnShuffle');
-        if (MEDIA.some(track => track !== MEDIA[APP.currentTrack])) {
-            btnShuffle.classList.add('active');
-        } else {
-            btnShuffle.classList.remove('active');
-        }
-    },
+    // shuffleToggle: () => {
+    //     const btnShuffle = document.getElementById('btnShuffle');
+    //     if (MEDIA.some(track => track !== MEDIA[APP.currentTrack])) {
+    //         btnShuffle.classList.add('active');
+    //     } else {
+    //         btnShuffle.classList.remove('active');
+    //     }
+    // },
     ended: () => {
         APP.next();
     },
@@ -166,7 +189,6 @@ const APP = {
                 APP.load(true);
                 APP.updateUI();
                 APP.playPauseUI();
-
             });
         });
     },

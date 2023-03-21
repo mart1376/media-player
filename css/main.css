@@ -140,23 +140,23 @@ header{
     position: fixed;
     width: 100%;
     z-index: 1;
-
-
 }
 
 header i{
     transform: translateY(.25rem);
 
-    
 }
 .ms{
-    font-size: 32px;
+    font-size: 35px;
+    padding: 0;
+    margin: 0;
 }
 h1{
     color: var(--accent2-color);
-    font-size: 2.25rem;
+    font-size: 2.35rem;
     font-weight: 300;
     margin-bottom: 0;
+    padding-top: 1rem;
 }
 
 li{
@@ -165,15 +165,15 @@ li{
 
 .album_art__full {
     display: grid;
-    padding-top: 5.25rem;
-    padding-bottom: .5rem;
+    padding: 5.25rem 1rem .5rem;
     justify-content: center;
+    z-index: 5;
 }
 
 .album_art__full img{
     border-radius: 1rem;
     box-shadow: 2rem 2rem 5rem ;
-    outline: .75rem solid var(--dark-color);
+    outline: .75rem solid #e8dfd9 ;
 }
 
 #btnShuffle{
@@ -191,26 +191,11 @@ li{
 
 }
 
-.icon {
-  animation: jump 0.5s ease-in-out infinite;
-}
-
-@keyframes jump {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
 button{
     background-color: transparent;
     border: none;
     cursor: pointer;
+    padding: .1rem;
 }
 
 
@@ -246,7 +231,7 @@ h1 i{
 
 .track__thumb{
     padding: .25rem;
-    background-color: white;
+    background-color: #e8dfd9 ;
     border-radius: .35rem;
     height: fit-content;
     align-self: center;
@@ -275,6 +260,7 @@ h1 i{
 
 .playlist{
     padding-left: 0;
+    padding-top: 1rem;
     margin-bottom: 6rem;
     color: var(--accent2-color);
     
@@ -343,7 +329,35 @@ span {
 .current-track{
     outline: .25rem solid var(--accent-color);
 }
+
+/* ~~~~~~~~~~~~~~~~~~Animations + ~~~~~~~~~~~~~~~~~~~~~ */
 .animate {
+	backface-visibility: visible !important;
+	animation: flip 2s ease;
+}
+@keyframes flip {
+	0% {
+        transform: perspective(2000px) rotateY(0);
+		animation-timing-function: ease-out;
+	}
+	40% {
+		transform: perspective(2000px) translateZ(150px) rotateY(170deg);
+		animation-timing-function: ease-out;
+	}
+	50% {
+		transform: perspective(2000px) translateZ(150px) rotateY(190deg) scale(1);
+		animation-timing-function: ease-in;
+	}
+	80% {
+		transform: perspective(2000px) rotateY(360deg) scale(.95);
+		animation-timing-function: ease-in;
+	}
+	100% {
+		transform: perspective(2000px) scale(1);
+		animation-timing-function: ease-in;
+	}
+}
+/* .animate {
     animation: myAnimation 1s ease;
     }
 
@@ -356,11 +370,28 @@ span {
         opacity: 1;
         transform: scale(1);
     }
+} */
+
+.jump {
+    animation: jump 0.5s ease-in-out infinite;
+    translate: 0 .5rem;
+    }
+
+    @keyframes jump {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 
 @media only screen and (min-width: 30em) {
 
-.album_art__full img {
+    .album_art__full img {
         width: 30rem;
     }
     h1 {
@@ -371,7 +402,15 @@ span {
     }
     .ms {
         font-size: 41px !important;
+        padding: 0;
     }
+    .playlist{
+        padding-top: 1rem;
+    }
+    button{
+        padding: .25rem;
+    }
+
 
 }
 
@@ -404,6 +443,7 @@ span {
         width: 3rem;
         align-self: flex-start;
         margin-top: .5rem;
+        
     }
 
     footer {
@@ -412,6 +452,9 @@ span {
     }
     .ms {
         font-size: 60px !important;
+    }
+    button{
+        padding: .35rem;
     }
 
 
