@@ -136,25 +136,27 @@ main{
 
 header{
     background-color: var(--dark-color);
-    padding: 1rem;
     text-align: center;
     position: fixed;
     width: 100%;
     z-index: 1;
-    display: inline;
+
+
 }
 
 header i{
     transform: translateY(.25rem);
 
+    
 }
-
+.ms{
+    font-size: 32px;
+}
 h1{
     color: var(--accent2-color);
-    font-size: 2rem;
+    font-size: 2.25rem;
     font-weight: 300;
     margin-bottom: 0;
-    
 }
 
 li{
@@ -171,14 +173,38 @@ li{
 .album_art__full img{
     border-radius: 1rem;
     box-shadow: 2rem 2rem 5rem ;
-    /* outline: .25rem solid var(--accent-color); */
+    outline: .75rem solid var(--dark-color);
 }
-
 
 #btnShuffle{
     width: 3rem;
     justify-self: center;
     margin-top: .5rem;
+    translate: 0 1rem;
+}
+
+.active i{
+    border: 2px solid var(--accent-color);
+    border-radius: 2rem;
+    background-color: var(--accent-color);
+    color: #023047;
+
+}
+
+.icon {
+  animation: jump 0.5s ease-in-out infinite;
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 button{
@@ -221,8 +247,12 @@ h1 i{
 .track__thumb{
     padding: .25rem;
     background-color: white;
+    border-radius: .35rem;
     height: fit-content;
     align-self: center;
+}
+.track__thumb img{
+    border-radius: .35rem;
 }
 
 .track__details{
@@ -300,7 +330,6 @@ footer {
 
 .played{
     background-color: var(--accent2-color);
-    width: 25%;
     height: .75rem;
     position: fixed;
     bottom: 5rem;
@@ -314,6 +343,20 @@ span {
 .current-track{
     outline: .25rem solid var(--accent-color);
 }
+.animate {
+    animation: myAnimation 1s ease;
+    }
+
+    @keyframes myAnimation {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 
 @media only screen and (min-width: 30em) {
 
@@ -321,13 +364,13 @@ span {
         width: 30rem;
     }
     h1 {
-        font-size: 2.75rem;
+        font-size: 3rem;
     }
     .album_art__full {
         padding-top: 6.5rem;
     }
     .ms {
-        font-size: 38px !important;
+        font-size: 41px !important;
     }
 
 }
@@ -339,7 +382,7 @@ span {
         padding: 4rem;;
     }
     h1 {
-        font-size: 3.5rem;
+        font-size: 4.5rem;
     }
 
     .playlist{
@@ -362,12 +405,13 @@ span {
         align-self: flex-start;
         margin-top: .5rem;
     }
+
     footer {
         justify-content: center;
         column-gap: 22rem;
     }
     .ms {
-        font-size: 48px !important;
+        font-size: 60px !important;
     }
 
 
