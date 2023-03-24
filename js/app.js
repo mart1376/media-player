@@ -29,7 +29,6 @@ const APP = {
             APP.timeupdate();
             APP.playAnimations();
         })
-
         APP.audio.addEventListener('play', APP.play)
         APP.audio.addEventListener('pause', APP.pause)
         APP.audio.addEventListener('ended', APP.next)
@@ -37,14 +36,9 @@ const APP = {
     load: (andPlay = false) => {
         APP.audio.src = `./media/${MEDIA[APP.currentTrack].track}`;
         console.log('audio has been loaded', APP.audio.src);
-        // andPlay && !(andPlay instanceof Event);
         APP.loadAlbumCover();
-        // APP.play();
         if (andPlay) {
-            document.addEventListener('click', function playAudio() {
-                APP.play();
-                document.removeEventListener('click', playAudio);
-            });
+            APP.play();
         }
     },
     loadAlbumCover: () => {
@@ -55,22 +49,18 @@ const APP = {
         albumCover.classList.add('animate');
     },
     duration: () => {
-        //TODO: first track duration not correct
-        MEDIA.forEach((track) => {
+        for (let i = 0; i < MEDIA.length; i++) {
+            let track = MEDIA[i];
             let tempAudio = new Audio(`./media/${track.track}`);
             tempAudio.addEventListener('durationchange', (ev) => {
                 let duration = ev.target.duration;
                 track['duration'] = duration;
-
                 let thumbnails = document.querySelectorAll('.track__item img');
-                thumbnails.forEach((thumb, index) => {
-                    if (thumb.src.includes(track.thumbnail)) {
-                        let timeString = APP.convertTimeDisplay(duration);
-                        thumb.closest('.track__item').querySelector('time').textContent = timeString;
-                    }
-                })
+                let thumbnail = thumbnails[i];
+                let timeString = APP.convertTimeDisplay(duration);
+                thumbnail.closest('.track__item').querySelector('time').textContent = timeString;
             })
-        });
+        }
     },
     play: () => {
         if (APP.audio.src) {
@@ -101,8 +91,7 @@ const APP = {
             playPause.innerHTML = `<button id="btnPlay" title="play | pause"><i class="material-symbols-rounded ms-controls">play_arrow</i></button>`;
         }
     },
-    playAnimations: () => { //TODO:
-        //Header icons 
+    playAnimations: () => {
         const icons = document.querySelectorAll('h1 i');
         icons.forEach(icon => {
             if (!APP.audio.paused) {
@@ -111,10 +100,6 @@ const APP = {
                 icon.classList.remove("jump");
             }
         });
-        //Animation 
-        // const albumCover = document.querySelector('.album_art__full img');
-        // albumCover.classList.add('jump');
-        // APP.addAudioListeners();
     },
     next: () => {
         APP.audio.pause();
@@ -134,10 +119,10 @@ const APP = {
     },
     shuffle: () => {
         for (let i = MEDIA.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
+            const x = Math.floor(Math.random() * (i + 1));
             const temp = MEDIA[i];
-            MEDIA[i] = MEDIA[j];
-            MEDIA[j] = temp;
+            MEDIA[i] = MEDIA[x];
+            MEDIA[x] = temp;
         }
         APP.currentTrack = 0;
         APP.init();
@@ -168,9 +153,8 @@ const APP = {
     },
     selectedTrack: () => {
         const trackItems = document.querySelectorAll('.track__item');
-        trackItems.forEach((item) => {
+        trackItems.forEach((item, index) => {
             item.addEventListener('click', () => {
-                const index = Array.from(trackItems).indexOf(item);
                 APP.currentTrack = index;
                 APP.load(true);
                 APP.updateUI();
