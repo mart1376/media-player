@@ -171,9 +171,11 @@ li{
 }
 
 .album_art__full img{
+    border: .75rem solid #e8dfd9 ;
     border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
     box-shadow: 2rem 2rem 5rem ;
-    outline: .75rem solid #e8dfd9 ;
 }
 
 #btnShuffle{
@@ -186,6 +188,8 @@ li{
 .active i{
     border: 2px solid var(--accent-color);
     border-radius: 2rem;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
     background-color: var(--accent-color);
     color: #023047;
 
